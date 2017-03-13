@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="Chess.pieceButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Chess"
+             mc:Ignorable="d"
+             Name="UC">
+    <UserControl.Resources>
+        <Image x:Key="P1Rook" Source="Resources/p1Rook.bmp" />
+        <Image x:Key="P1Pawn" Source="Resources/p1Pawn.bmp" />
+        <Image x:Key="P2Pawn" Source="Resources/p2Pawn.bmp" />
+        <Image x:Key="P2Rook" Source="Resources/p2Rook.bmp" />
+        <Image x:Key="P2Knight" Source="Resources/p2Knight.bmp" />
+        <Image x:Key="P2Bishop" Source="Resources/p2Bishop.bmp" />
+        <Image x:Key="P2Queen" Source="Resources/p2Queen.bmp" />
+        <Image x:Key="P2King" Source="Resources/p2King.bmp" />
+        <Image x:Key="P1Knight" Source="Resources/p1Knight.bmp" />
+        <Image x:Key="P1Bishop" Source="Resources/p1Bishop.bmp" />
+        <Image x:Key="P1King" Source="Resources/p1King.bmp" />
+        <Image x:Key="P1Queen" Source="Resources/p1Queen.bmp" />
+        <ImageBrush x:Key="BackgroundTexture" ImageSource="Resources/stardust_@2X.png" />
+        <Image x:Key="P1RookClassy" Source="Resources/p1RookClassic.png" />
+        <Image x:Key="P1PawnClassy" Source="Resources/p1PawnClassic.png" />
+        <Image x:Key="P2PawnClassy" Source="Resources/p2PawnClassic.png" />
+        <Image x:Key="P2RookClassy" Source="Resources/p2RookClassic.png" />
+        <Image x:Key="P2KnightClassy" Source="Resources/p2KnightClassic.png" />
+        <Image x:Key="P2BishopClassy" Source="Resources/p2BishopClassic.png" />
+        <Image x:Key="P2QueenClassy" Source="Resources/p2QueenClassic.png" />
+        <Image x:Key="P2KingClassy" Source="Resources/p2KingClassic.png" />
+        <Image x:Key="P1KnightClassy" Source="Resources/p1KnightClassic.png" />
+        <Image x:Key="P1BishopClassy" Source="Resources/p1BishopClassic.png" />
+        <Image x:Key="P1KingClassy" Source="Resources/p1KingClassic.png" />
+        <Image x:Key="P1QueenClassy" Source="Resources/p1QueenClassic.png" />
+        <ImageBrush x:Key="BackgroundTexture1" ImageSource="Resources/space.jpg" />
+        <Image x:Key="P1RookSpook" Source="Resources/p1RookSpook.png" />
+        <Image x:Key="P1PawnSpook" Source="Resources/p1PawnSpook.png" />
+        <Image x:Key="P2PawnSpook" Source="Resources/p2PawnSpook.png" />
+        <Image x:Key="P2RookSpook" Source="Resources/p2RookSpook.png" />
+        <Image x:Key="P2KnightSpook" Source="Resources/p2KnightSpook.png" />
+        <Image x:Key="P2BishopSpook" Source="Resources/p2BishopSpook.png" />
+        <Image x:Key="P2QueenSpook" Source="Resources/p2QueenSpook.png" />
+        <Image x:Key="P2KingSpook" Source="Resources/p2KingSpook.png" />
+        <Image x:Key="P1KnightSpook" Source="Resources/p1KnightSpook.png" />
+        <Image x:Key="P1BishopSpook" Source="Resources/p1BishopSpook.png" />
+        <Image x:Key="P1KingSpook" Source="Resources/p1KingSpook.png" />
+        <Image x:Key="P1QueenSpook" Source="Resources/p1QueenSpook.png" />
+        <ImageBrush x:Key="BackgroundTexture2" ImageSource="Resources/wood.jpg" />
+    </UserControl.Resources>
+
+    <Grid>
+
+        <Button x:Name="button"  Width="92" Height="92" Background="{Binding ElementName=UC, Path=ButtonBackground}" Click="button_Click" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave">
+            <StackPanel Orientation="Vertical" Height="75" Width="70" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Image Source="{Binding ElementName=UC, Path=Image}"
+                       Width="{Binding ElementName=UC, Path=ImageWidth}"
+                       Height="{Binding ElementName=UC, Path=ImageHeight}"/>
+                <TextBlock Text="{Binding ElementName=UC, Path=Text}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="White" FontSize="10" FontWeight="Bold"/>
+            </StackPanel>
+        </Button>
+
+    </Grid>
+</UserControl>

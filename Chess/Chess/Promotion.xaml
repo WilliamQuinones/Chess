@@ -1,0 +1,20 @@
+﻿<Window x:Class="Chess.Promotion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chess"
+        mc:Ignorable="d"
+        Title="Promotion" Height="260.041" Width="408.811">
+    <Window.Background>
+        <ImageBrush ImageSource="Resources/stardust_@2X.png"/>
+    </Window.Background>
+    <Grid>
+        <Label x:Name="label" Content="Please choose what piece to promote pawn to:" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="391" Foreground="White" FontFamily="Century Gothic" FontSize="16" Margin="5,55,5,0"/>
+        <Button x:Name="knight" Content="Knight" HorizontalAlignment="Left" Margin="34,125,0,0" VerticalAlignment="Top" Width="60" Height="60" Click="knight_Click"/>
+        <Button x:Name="bishop" Content="Bishop" HorizontalAlignment="Left" Margin="124,125,0,0" VerticalAlignment="Top" Width="60" Height="60" Click="bishop_Click"/>
+        <Button x:Name="rook" Content="Rook" HorizontalAlignment="Left" Margin="214,125,0,0" VerticalAlignment="Top" Width="60" Height="60" Click="rook_Click"/>
+        <Button x:Name="queen" Content="Queen" HorizontalAlignment="Left" Margin="304,125,0,0" VerticalAlignment="Top" Width="60" Height="60" Click="queen_Click"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,184 @@
+﻿<Window x:Class="Chess.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chess"
+        xmlns:control = "clr-namespace:Chess" 
+        mc:Ignorable="d"
+        Title="Chess" Height="902.658" Width="1252.632">
+    <Window.Resources>
+        <Image x:Key="P1Rook" Source="Resources/p1Rook.bmp" />
+        <Image x:Key="P1Pawn" Source="Resources/p1Pawn.bmp" />
+        <Image x:Key="P2Pawn" Source="Resources/p2Pawn.bmp" />
+        <Image x:Key="P2Rook" Source="Resources/p2Rook.bmp" />
+        <Image x:Key="P2Knight" Source="Resources/p2Knight.bmp" />
+        <Image x:Key="P2Bishop" Source="Resources/p2Bishop.bmp" />
+        <Image x:Key="P2Queen" Source="Resources/p2Queen.bmp" />
+        <Image x:Key="P2King" Source="Resources/p2King.bmp" />
+        <Image x:Key="P1Knight" Source="Resources/p1Knight.bmp" />
+        <Image x:Key="P1Bishop" Source="Resources/p1Bishop.bmp" />
+        <Image x:Key="P1King" Source="Resources/p1King.bmp" />
+        <Image x:Key="P1Queen" Source="Resources/p1Queen.bmp" />
+        <ImageBrush x:Key="BackgroundTexture" ImageSource="Resources/stardust_@2X.png" />
+        <Image x:Key="P1RookClassy" Source="Resources/p1RookClassic.png" />
+        <Image x:Key="P1PawnClassy" Source="Resources/p1PawnClassic.png" />
+        <Image x:Key="P2PawnClassy" Source="Resources/p2PawnClassic.png" />
+        <Image x:Key="P2RookClassy" Source="Resources/p2RookClassic.png" />
+        <Image x:Key="P2KnightClassy" Source="Resources/p2KnightClassic.png" />
+        <Image x:Key="P2BishopClassy" Source="Resources/p2BishopClassic.png" />
+        <Image x:Key="P2QueenClassy" Source="Resources/p2QueenClassic.png" />
+        <Image x:Key="P2KingClassy" Source="Resources/p2KingClassic.png" />
+        <Image x:Key="P1KnightClassy" Source="Resources/p1KnightClassic.png" />
+        <Image x:Key="P1BishopClassy" Source="Resources/p1BishopClassic.png" />
+        <Image x:Key="P1KingClassy" Source="Resources/p1KingClassic.png" />
+        <Image x:Key="P1QueenClassy" Source="Resources/p1QueenClassic.png" />
+        <ImageBrush x:Key="BackgroundTexture1" ImageSource="Resources/space.jpg" />
+        <Image x:Key="P1RookSpook" Source="Resources/p1RookSpook.png" />
+        <Image x:Key="P1PawnSpook" Source="Resources/p1PawnSpook.png" />
+        <Image x:Key="P2PawnSpook" Source="Resources/p2PawnSpook.png" />
+        <Image x:Key="P2RookSpook" Source="Resources/p2RookSpook.png" />
+        <Image x:Key="P2KnightSpook" Source="Resources/p2KnightSpook.png" />
+        <Image x:Key="P2BishopSpook" Source="Resources/p2BishopSpook.png" />
+        <Image x:Key="P2QueenSpook" Source="Resources/p2QueenSpook.png" />
+        <Image x:Key="P2KingSpook" Source="Resources/p2KingSpook.png" />
+        <Image x:Key="P1KnightSpook" Source="Resources/p1KnightSpook.png" />
+        <Image x:Key="P1BishopSpook" Source="Resources/p1BishopSpook.png" />
+        <Image x:Key="P1KingSpook" Source="Resources/p1KingSpook.png" />
+        <Image x:Key="P1QueenSpook" Source="Resources/p1QueenSpook.png" />
+        <ImageBrush x:Key="BackgroundTexture2" ImageSource="Resources/wood.jpg" />
+
+    </Window.Resources>
+
+
+    <Grid Name="masterGrid">
+
+        <DockPanel Name="dock" HorizontalAlignment="Left" Height="30" LastChildFill="False" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=masterGrid}">
+            <Menu x:Name="menu" Height="30" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=dock}" FontSize="18">
+                <MenuItem Header="Game" VerticalAlignment="Center" Width="61" Height="{Binding ActualHeight, ElementName=menu}">
+                    <MenuItem Header="Config" Click="MenuItem_Click_1" >
+                    </MenuItem>
+                    <MenuItem Header="Exit" Click="MenuItem_Click" >
+                    </MenuItem>
+                </MenuItem>
+
+            </Menu>
+        </DockPanel>
+        <StatusBar Panel.ZIndex="2" HorizontalAlignment="Left" Height="31" Margin="0,841,0,0" VerticalAlignment="Bottom" Width="{Binding ActualWidth, ElementName=masterGrid}">
+            <Label x:Name="currentPosition" Content="" Width="57" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Height="31"/>
+        </StatusBar>
+        <Grid x:Name="gameGrid" HorizontalAlignment="Left" Height="{Binding ActualHeight, ElementName=masterGrid}" Margin="0,30,0,0" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=masterGrid}" Panel.ZIndex="1" Background="{DynamicResource BackgroundTexture}">
+            <Grid HorizontalAlignment="Left" Height="791" Margin="10,10,0,0" VerticalAlignment="Top" Width="791">
+                <Grid Name="board" HorizontalAlignment="Left" Height="736" Margin="55,51,0,0" VerticalAlignment="Top" Width="736" x:FieldModifier="public">
+
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="a8" Margin="0,0,644,644" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="a7" Margin="0,92,644,552"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="a6" Margin="0,184,644,460"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="a5" Margin="0,276,644,368"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="a4" Margin="0,368,644,276"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="a3" Margin="0,460,644,184"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="a2" Margin="0,552,644,92"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="a1" Margin="0,644,644,0"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="b8" Margin="92,0,552,644"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="c8" Margin="184,0,460,644"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="d8" Margin="276,0,368,644"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="e8" Margin="368,0,276,644"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="f8" Margin="460,0,184,644"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="g8" Margin="552,0,92,644"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="h8" Margin="644,0,0,644" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="b7" Margin="92,92,552,552" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="c7" Margin="184,92,460,552"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="d7" Margin="276,92,368,552"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="e7" Margin="368,92,276,552"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="f7" Margin="460,92,184,552"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="g7" Margin="552,92,92,552"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="h7" Margin="644,92,0,552"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="b6" Margin="92,184,552,460" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="c5" Margin="184,276,460,368"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="d4" Margin="276,368,368,276"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="e3" Margin="368,460,276,184"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="f2" Margin="460,552,184,92"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="g1" Margin="552,644,92,0"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="h2" Margin="644,552,0,92" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="g3" Margin="552,460,92,184"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="f4" Margin="460,368,184,276"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="e5" Margin="368,276,276,368"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="d6" Margin="276,184,368,460"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="f6" Margin="460,184,184,460" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="h6" Margin="644,184,0,460" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="g5" Margin="552,276,92,368"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="h4" Margin="644,368,0,276" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="b4" Margin="92,368,552,276"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="c3" Margin="184,460,460,184" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="b2" Margin="92,552,552,92" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="c1" Margin="184,644,460,0" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="d2" Margin="276,552,368,92" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="e1" Margin="368,644,276,0" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="c6" Margin="184,184,460,460"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="e6" Margin="368,184,276,460"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="g6" Margin="552,184,92,460"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="b5" Margin="92,276,552,368"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="d5" Margin="276,276,368,368"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="f5" Margin="460,276,184,368" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="h5" Margin="644,276,0,368"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="c4" Margin="184,368,460,276"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="e4" Margin="368,368,276,276"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="g4" Margin="552,368,92,276"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="b3" Margin="92,460,552,184"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="d3" Margin="276,460,368,184" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="f3" Margin="460,460,184,184"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="h3" Margin="644,460,0,184"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="c2" Margin="184,552,460,92"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="e2" Margin="368,552,276,92"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="g2" Margin="552,552,92,92"/>
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="b1" Margin="92,644,552,0" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="d1" Margin="276,644,368,0" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="f1" Margin="460,644,184,0" />
+                    <control:pieceButton ImageWidth="60" ImageHeight="60" x:Name="h1" Margin="644,644,0,0" />
+                </Grid>
+                <Label x:Name="letters" Content="      a              b              c              d              e               f               g              h" HorizontalAlignment="Left" Margin="55,5,0,0" VerticalAlignment="Top" Width="736" Height="46" FontSize="20" FontWeight="Bold" Foreground="White" FontFamily="Century Gothic"/>
+                <StackPanel HorizontalAlignment="Left" Height="736" Margin="0,51,0,0" VerticalAlignment="Top" Width="50">
+                    <Label x:Name="label8" Content="&#xA; 8&#xA;" Height="92" FontSize="20" FontWeight="Bold" Foreground="White" FontFamily="Century Gothic"/>
+                    <Label x:Name="label7" Content="&#xA; 7&#xA;" Height="92" FontSize="20" Foreground="White" FontWeight="Bold" FontFamily="Century Gothic"/>
+                    <Label x:Name="label6" Content="&#xA; 6&#xA;" Height="92" FontSize="20" FontWeight="Bold" Foreground="White" FontFamily="Century Gothic"/>
+                    <Label x:Name="label5" Content="&#xA; 5&#xA;" Height="92" FontSize="20" Foreground="White" FontWeight="Bold" FontFamily="Century Gothic"/>
+                    <Label x:Name="label4" Content="&#xA; 4" Height="92" FontSize="20" FontWeight="Bold" Foreground="White" FontFamily="Century Gothic"/>
+                    <Label x:Name="label3" Content="&#xA; 3&#xA;" Height="92" FontSize="20" Foreground="White" FontWeight="Bold" FontFamily="Century Gothic"/>
+                    <Label x:Name="label2" Content="&#xA; 2&#xA;" Height="92" FontSize="20" FontWeight="Bold" Foreground="White" FontFamily="Century Gothic"/>
+                    <Label x:Name="label1" Content="&#xA; 1&#xA;" Height="92" FontSize="20" Foreground="White" FontWeight="Bold" FontFamily="Century Gothic"/>
+                </StackPanel>
+            </Grid>
+            <Label x:Name="labelPlayerTurn" Content="Player 1 turn" HorizontalAlignment="Left" Margin="822,20,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Foreground="White" FontFamily="Century Gothic" FontStretch="SemiExpanded"/>
+            <Label x:Name="timer" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="54" Margin="976,10,0,0"  VerticalAlignment="Top" Width="217" FontSize="36" FontFamily="Century Gothic" FontWeight="Bold" Foreground="White"/>
+            <Label x:Name="label9" Content="History" HorizontalAlignment="Left" Margin="977,69,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Foreground="White" FontFamily="Century Gothic" FontStretch="SemiExpanded"/>
+            <Label x:Name="label" Content="Captured Pieces" HorizontalAlignment="Left" Margin="920,583,0,0" VerticalAlignment="Top" Width="206" FontSize="24" Foreground="White" FontWeight="Bold" FontFamily="Century Gothic" FontStretch="SemiExpanded"/>
+            <Grid HorizontalAlignment="Left" Height="458" Margin="837,111,0,0" VerticalAlignment="Top" Width="372">
+                <StatusBar HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="372">
+                    <Label x:Name="label10" Content="Turn" Width="75"/>
+                    <Label x:Name="label11" Content="Player" Width="81"/>
+                    <Label x:Name="label12" Content="Move" Width="124"/>
+                </StatusBar>
+                <ScrollViewer Background="White" HorizontalAlignment="Left" Height="423" Margin="0,35,0,0" VerticalAlignment="Top" Width="372">
+                    <TextBox x:Name="moveHistory"  TextWrapping="Wrap" Width="355" IsEnabled="False" HorizontalAlignment="Left" FontWeight="Bold" FontSize="15"/>
+                </ScrollViewer>
+            </Grid>
+            <Rectangle Fill="#31111183" HorizontalAlignment="Left" Height="170" Margin="818,625,0,0"  VerticalAlignment="Top" Width="403"/>
+            <Label x:Name="label13" Content="Player 1" HorizontalAlignment="Left" Margin="886,627,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontWeight="Bold" FontSize="18" Foreground="White"/>
+            <Label x:Name="label14" Content="Player 2" HorizontalAlignment="Left" Margin="1078,627,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontWeight="Bold" FontSize="18" Foreground="White"/>
+            <Label x:Name="p1CaptureLabelPawn"  HorizontalContentAlignment="Center"   Margin="840,650,236,0" VerticalAlignment="Top" Width="169" Height="30" Foreground="White" FontFamily="Century Gothic" FontSize="16"/>
+            <Label x:Name="p2CaptureLabelPawn"  HorizontalContentAlignment="Center" Margin="1032,650,44,0" VerticalAlignment="Top" Width="169" Height="30" FontFamily="Century Gothic" FontSize="16" Foreground="White"/>
+            <Label x:Name="p1CaptureLabelKnight"  HorizontalContentAlignment="Center"   Margin="840,678,236,0" VerticalAlignment="Top" Width="169" Height="30" Foreground="White" FontFamily="Century Gothic" FontSize="16"/>
+            <Label x:Name="p1CaptureLabelBishop"  HorizontalContentAlignment="Center"   Margin="840,706,236,0" VerticalAlignment="Top" Width="169" Height="30" Foreground="White" FontFamily="Century Gothic" FontSize="16"/>
+            <Label x:Name="p1CaptureLabelRook"  HorizontalContentAlignment="Center"   Margin="840,734,236,0" VerticalAlignment="Top" Width="169" Height="30" Foreground="White" FontFamily="Century Gothic" FontSize="16"/>
+            <Label x:Name="p1CaptureLabelQueen"  HorizontalContentAlignment="Center"   Margin="840,762,236,0" VerticalAlignment="Top" Width="169" Height="30" Foreground="White" FontFamily="Century Gothic" FontSize="16"/>
+            <Label x:Name="p2CaptureLabelKnight"  HorizontalContentAlignment="Center"   Margin="1032,678,44,0" VerticalAlignment="Top" Width="169" Height="30" Foreground="White" FontFamily="Century Gothic" FontSize="16"/>
+            <Label x:Name="p2CaptureLabelBishop"  HorizontalContentAlignment="Center"   Margin="1032,706,44,0" VerticalAlignment="Top" Width="169" Height="30" Foreground="White" FontFamily="Century Gothic" FontSize="16"/>
+            <Label x:Name="p2CaptureLabelRook"  HorizontalContentAlignment="Center"   Margin="1032,734,44,0" VerticalAlignment="Top" Width="169" Height="30" Foreground="White" FontFamily="Century Gothic" FontSize="16"/>
+            <Label x:Name="p2CaptureLabelQueen"  HorizontalContentAlignment="Center"   Margin="1032,762,44,0" VerticalAlignment="Top" Width="169" Height="30" Foreground="White" FontFamily="Century Gothic" FontSize="16"/>
+
+
+
+        </Grid>
+
+    </Grid>
+</Window>
